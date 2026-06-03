@@ -7,5 +7,8 @@ module.exports = {
   transform: {
     '^.+\\.ts$': 'ts-jest'
   },
-  verbose: true
+  verbose: true,
+  moduleNameMapper: {
+    '^@actions/github$': '<rootDir>/__tests__/mock/github-mock.ts'
+  }
 }
