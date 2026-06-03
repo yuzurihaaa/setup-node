@@ -8,7 +8,7 @@
     "node": ">=24.0.0"
   },
   "scripts": {
-    "build": "ncc build -o dist/setup src/setup-node.ts && ncc build -o dist/cache-save src/cache-save.ts",
+    "build": "esbuild src/setup-node.ts --bundle --platform=node --outfile=dist/setup/index.js && esbuild src/cache-save.ts --bundle --platform=node --outfile=dist/cache-save/index.js",
     "format": "prettier --no-error-on-unmatched-pattern --config ./.prettierrc.js --write \"**/*.{ts,yml,yaml}\"",
     "format-check": "prettier --no-error-on-unmatched-pattern --config ./.prettierrc.js --check \"**/*.{ts,yml,yaml}\"",
     "lint": "eslint --config ./.eslintrc.js \"**/*.ts\"",
@@ -31,7 +31,7 @@
     "@actions/cache": "^5.0.5",
     "@actions/core": "^2.0.3",
     "@actions/exec": "^2.0.0",
-    "@actions/github": "^6.0.1",
+    "@actions/github": "^9.1.1",
     "@actions/glob": "^0.5.1",
     "@actions/http-client": "^3.0.2",
     "@actions/io": "^2.0.0",
@@ -44,7 +44,7 @@
     "@types/semver": "^7.5.8",
     "@typescript-eslint/eslint-plugin": "^5.54.0",
     "@typescript-eslint/parser": "^5.54.0",
-    "@vercel/ncc": "^0.38.3",
+    "esbuild": "^0.28.0",
     "eslint": "^8.57.0",
     "eslint-config-prettier": "^8.6.0",
     "eslint-plugin-jest": "^27.9.0",
