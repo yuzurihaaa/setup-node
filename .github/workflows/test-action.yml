@@ -1,0 +1,27 @@
+name: Test action
+
+on:
+  push:
+    branches:
+      - test/run-action
+  workflow_dispatch:
+
+jobs:
+  test-setup-node:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: ['18.x', '20.x', '22.x']
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js ${{ matrix.node-version }}
+        uses: ./
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Verify Node.js version
+        run: node --version
+
+      - name: Verify npm version
+        run: npm --version
