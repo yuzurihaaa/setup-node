@@ -16,6 +16,10 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Enable corepack for yarn/pnpm
+        if: matrix.package-manager != 'npm'
+        run: corepack enable
+
       - name: Setup Node.js ${{ matrix.node-version }}
         uses: ./
         with:
