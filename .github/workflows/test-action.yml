@@ -11,13 +11,8 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: ['20.x', '24.x', '26.x']
+        node-version: ['24.x', '26.x']
         package-manager: ['npm', 'yarn', 'pnpm']
-        exclude:
-          - node-version: '20.x'
-            package-manager: pnpm
-          - node-version: '20.x'
-            package-manager: yarn
     steps:
       - uses: actions/checkout@v4
 
