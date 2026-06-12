@@ -1,4 +1,4 @@
-import {Globber} from '@actions/glob';
+import {Globber} from '../../src/glob-shim';
 
 export class MockGlobber implements Globber {
   private readonly expected: string[];

@@ -1,6 +1,6 @@
 import * as core from '@actions/core';
 import * as cache from '@actions/cache';
-import * as glob from '@actions/glob';
+import * as glob from '../src/glob-shim';
 import fs from 'fs';
 import path from 'path';
 

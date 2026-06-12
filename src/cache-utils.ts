@@ -1,7 +1,7 @@
 import * as core from '@actions/core';
 import * as exec from '@actions/exec';
 import * as cache from '@actions/cache';
-import * as glob from '@actions/glob';
+import * as glob from './glob-shim';
 import path from 'path';
 import fs from 'fs';
 import {unique} from './util';

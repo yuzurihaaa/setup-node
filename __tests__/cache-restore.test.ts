@@ -1,7 +1,7 @@
 import * as core from '@actions/core';
 import * as cache from '@actions/cache';
 import * as path from 'path';
-import * as glob from '@actions/glob';
+import * as glob from '../src/glob-shim';
 import osm from 'os';
 
 import * as utils from '../src/cache-utils';

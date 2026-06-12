@@ -11,8 +11,8 @@ import {
 } from '../src/cache-utils';
 import fs from 'fs';
 import * as cacheUtils from '../src/cache-utils';
-import * as glob from '@actions/glob';
-import {Globber} from '@actions/glob';
+import * as glob from '../src/glob-shim';
+import {Globber} from '../src/glob-shim';
 import {MockGlobber} from './mock/glob-mock';
 
 describe('cache-utils', () => {
