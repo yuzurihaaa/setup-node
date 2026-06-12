@@ -1,6 +1,6 @@
 import * as core from '@actions/core';
 import * as exec from '@actions/exec';
-import * as cache from '@actions/cache';
+// import * as cache from '@actions/cache';
 import * as glob from './glob-shim';
 import path from 'path';
 import fs from 'fs';
@@ -303,7 +303,7 @@ export function isGhes(): boolean {
 }
 
 export function isCacheFeatureAvailable(): boolean {
-  if (cache.isFeatureAvailable()) return true;
+  // if (cache.isFeatureAvailable()) return true;
 
   if (isGhes()) {
     core.warning(

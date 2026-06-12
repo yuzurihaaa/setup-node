@@ -1,4 +1,4 @@
-import * as cache from '@actions/cache';
+// import * as cache from '@actions/cache';
 import * as core from '@actions/core';
 import * as glob from './glob-shim';
 import path from 'path';
@@ -51,14 +51,14 @@ export const restoreCache = async (
     cacheDependencyPath
   );
   let cacheKey: string | undefined;
-  if (isManagedByYarnBerry) {
-    core.info(
-      'All dependencies are managed locally by yarn3, the previous cache can be used'
-    );
-    cacheKey = await cache.restoreCache(cachePaths, primaryKey, [keyPrefix]);
-  } else {
-    cacheKey = await cache.restoreCache(cachePaths, primaryKey);
-  }
+  // if (isManagedByYarnBerry) {
+  //   core.info(
+  //     'All dependencies are managed locally by yarn3, the previous cache can be used'
+  //   );
+  //   cacheKey = await cache.restoreCache(cachePaths, primaryKey, [keyPrefix]);
+  // } else {
+  //   cacheKey = await cache.restoreCache(cachePaths, primaryKey);
+  // }
 
   core.setOutput('cache-hit', Boolean(cacheKey));
 

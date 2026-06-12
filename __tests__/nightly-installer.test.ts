@@ -3,7 +3,7 @@ import * as io from '@actions/io';
 import * as tc from '@actions/tool-cache';
 import * as httpm from '@actions/http-client';
 import * as exec from '@actions/exec';
-import * as cache from '@actions/cache';
+// import * as cache from '@actions/cache';
 import fs from 'fs';
 import cp from 'child_process';
 import osm from 'os';
@@ -43,7 +43,7 @@ describe('setup-node', () => {
   let execSpy: jest.SpyInstance;
   let authSpy: jest.SpyInstance;
   let parseNodeVersionSpy: jest.SpyInstance;
-  let isCacheActionAvailable: jest.SpyInstance;
+  // let isCacheActionAvailable: jest.SpyInstance;
   let getExecOutputSpy: jest.SpyInstance;
   let getJsonSpy: jest.SpyInstance;
 
@@ -83,7 +83,7 @@ describe('setup-node', () => {
     cpSpy = jest.spyOn(io, 'cp');
 
     // @actions/tool-cache
-    isCacheActionAvailable = jest.spyOn(cache, 'isFeatureAvailable');
+    // isCacheActionAvailable = jest.spyOn(cache, 'isFeatureAvailable');
 
     // disable authentication portion for installer tests
     authSpy = jest.spyOn(auth, 'configAuthentication');

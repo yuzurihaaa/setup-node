@@ -4,6 +4,7 @@ __tests__/runner/*
 
 validate/temp
 validate/node
+.idea
 
 # Rest of the file pulled from https://github.com/github/gitignore/blob/master/Node.gitignore
 # Logs

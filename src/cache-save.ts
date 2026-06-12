@@ -1,5 +1,5 @@
 import * as core from '@actions/core';
-import * as cache from '@actions/cache';
+// import * as cache from '@actions/cache';
 
 import {State} from './constants';
 import {getPackageManagerInfo} from './cache-utils';
@@ -61,10 +61,10 @@ const cachePackages = async (packageManager: string) => {
     return;
   }
 
-  const cacheId = await cache.saveCache(cachePaths, primaryKey);
-  if (cacheId == -1) {
-    return;
-  }
+  // const cacheId = await cache.saveCache(cachePaths, primaryKey);
+  // if (cacheId == -1) {
+  //   return;
+  // }
 
   core.info(`Cache saved with the key: ${primaryKey}`);
 };

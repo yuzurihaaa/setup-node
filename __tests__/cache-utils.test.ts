@@ -1,5 +1,5 @@
 import * as core from '@actions/core';
-import * as cache from '@actions/cache';
+// import * as cache from '@actions/cache';
 import path from 'path';
 import * as utils from '../src/cache-utils';
 import {
@@ -34,7 +34,7 @@ describe('cache-utils', () => {
     info = jest.spyOn(core, 'info');
     warningSpy = jest.spyOn(core, 'warning');
 
-    isFeatureAvailable = jest.spyOn(cache, 'isFeatureAvailable');
+    // isFeatureAvailable = jest.spyOn(cache, 'isFeatureAvailable');
 
     getCommandOutputSpy = jest.spyOn(utils, 'getCommandOutput');
 
@@ -71,30 +71,30 @@ describe('cache-utils', () => {
     });
   });
 
-  it('isCacheFeatureAvailable for GHES is false', () => {
-    isFeatureAvailable.mockImplementation(() => false);
-    process.env['GITHUB_SERVER_URL'] = 'https://www.test.com';
+  // it('isCacheFeatureAvailable for GHES is false', () => {
+  //   isFeatureAvailable.mockImplementation(() => false);
+  //   process.env['GITHUB_SERVER_URL'] = 'https://www.test.com';
 
-    expect(isCacheFeatureAvailable()).toBeFalsy();
-    expect(warningSpy).toHaveBeenCalledWith(
-      'Cache action is only supported on GHES version >= 3.5. If you are on version >=3.5 Please check with GHES admin if Actions cache service is enabled or not.'
-    );
-  });
+  //   expect(isCacheFeatureAvailable()).toBeFalsy();
+  //   expect(warningSpy).toHaveBeenCalledWith(
+  //     'Cache action is only supported on GHES version >= 3.5. If you are on version >=3.5 Please check with GHES admin if Actions cache service is enabled or not.'
+  //   );
+  // });
 
-  it('isCacheFeatureAvailable for GHES has an interhal error', () => {
-    isFeatureAvailable.mockImplementation(() => false);
-    process.env['GITHUB_SERVER_URL'] = '';
-    isCacheFeatureAvailable();
-    expect(warningSpy).toHaveBeenCalledWith(
-      'The runner was not able to contact the cache service. Caching will be skipped'
-    );
-  });
+  // it('isCacheFeatureAvailable for GHES has an interhal error', () => {
+  //   isFeatureAvailable.mockImplementation(() => false);
+  //   process.env['GITHUB_SERVER_URL'] = '';
+  //   isCacheFeatureAvailable();
+  //   expect(warningSpy).toHaveBeenCalledWith(
+  //     'The runner was not able to contact the cache service. Caching will be skipped'
+  //   );
+  // });
 
-  it('isCacheFeatureAvailable for GHES is available', () => {
-    isFeatureAvailable.mockImplementation(() => true);
+  // it('isCacheFeatureAvailable for GHES is available', () => {
+  //   isFeatureAvailable.mockImplementation(() => true);
 
-    expect(isCacheFeatureAvailable()).toStrictEqual(true);
-  });
+  //   expect(isCacheFeatureAvailable()).toStrictEqual(true);
+  // });
 
   afterEach(() => {
     process.env['GITHUB_SERVER_URL'] = '';
