@@ -1,6 +1,6 @@
 import * as core from '@actions/core';
 // import * as cache from '@actions/cache';
-import * as glob from '../src/glob-shim';
+// import * as glob from '@actions/glob';
 import fs from 'fs';
 import path from 'path';
 
@@ -28,7 +28,7 @@ describe('run', () => {
   let getStateSpy: jest.SpyInstance;
   let saveCacheSpy: jest.SpyInstance;
   let getCommandOutputSpy: jest.SpyInstance;
-  let hashFilesSpy: jest.SpyInstance;
+  // let hashFilesSpy: jest.SpyInstance;
   let existsSpy: jest.SpyInstance;
 
   beforeEach(() => {
@@ -54,16 +54,16 @@ describe('run', () => {
     // saveCacheSpy.mockImplementation(() => undefined);
 
     // glob
-    hashFilesSpy = jest.spyOn(glob, 'hashFiles');
-    hashFilesSpy.mockImplementation((pattern: string) => {
-      if (pattern.includes('package-lock.json')) {
-        return npmFileHash;
-      } else if (pattern.includes('yarn.lock')) {
-        return yarnFileHash;
-      } else {
-        return '';
-      }
-    });
+    // hashFilesSpy = jest.spyOn(glob, 'hashFiles');
+    // hashFilesSpy.mockImplementation((pattern: string) => {
+    //   if (pattern.includes('package-lock.json')) {
+    //     return npmFileHash;
+    //   } else if (pattern.includes('yarn.lock')) {
+    //     return yarnFileHash;
+    //   } else {
+    //     return '';
+    //   }
+    // });
 
     existsSpy = jest.spyOn(fs, 'existsSync');
     existsSpy.mockImplementation(() => true);

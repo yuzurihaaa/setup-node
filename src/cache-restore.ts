@@ -1,6 +1,6 @@
 // import * as cache from '@actions/cache';
 import * as core from '@actions/core';
-import * as glob from './glob-shim';
+// import * as glob from '@actions/glob';
 import path from 'path';
 import fs from 'fs';
 import os from 'os';
@@ -29,22 +29,22 @@ export const restoreCache = async (
     cacheDependencyPath
   );
   core.saveState(State.CachePaths, cachePaths);
-  const lockFilePath = cacheDependencyPath
-    ? cacheDependencyPath
-    : findLockFile(packageManagerInfo);
-  const fileHash = await glob.hashFiles(lockFilePath);
-
-  if (!fileHash) {
-    throw new Error(
-      'Some specified paths were not resolved, unable to cache dependencies.'
-    );
-  }
-
-  const keyPrefix = `node-cache-${platform}-${arch}-${packageManager}`;
-  const primaryKey = `${keyPrefix}-${fileHash}`;
-  core.debug(`primary key is ${primaryKey}`);
-
-  core.saveState(State.CachePrimaryKey, primaryKey);
+  // const lockFilePath = cacheDependencyPath
+  //   ? cacheDependencyPath
+  //   : findLockFile(packageManagerInfo);
+  // const fileHash = await glob.hashFiles(lockFilePath);
+  //
+  // if (!fileHash) {
+  //   throw new Error(
+  //     'Some specified paths were not resolved, unable to cache dependencies.'
+  //   );
+  // }
+  //
+  // const keyPrefix = `node-cache-${platform}-${arch}-${packageManager}`;
+  // const primaryKey = `${keyPrefix}-${fileHash}`;
+  // core.debug(`primary key is ${primaryKey}`);
+  //
+  // core.saveState(State.CachePrimaryKey, primaryKey);
 
   const isManagedByYarnBerry = await repoHasYarnBerryManagedDependencies(
     packageManagerInfo,

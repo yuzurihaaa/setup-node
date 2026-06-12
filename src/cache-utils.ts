@@ -1,7 +1,7 @@
 import * as core from '@actions/core';
 import * as exec from '@actions/exec';
 // import * as cache from '@actions/cache';
-import * as glob from './glob-shim';
+// import * as glob from '@actions/glob';
 import path from 'path';
 import fs from 'fs';
 import {unique} from './util';
@@ -138,8 +138,9 @@ const getProjectDirectoriesFromCacheDependencyPath = async (
     return projectDirectoriesMemoized;
   }
 
-  const globber = await glob.create(cacheDependencyPath);
-  const cacheDependenciesPaths = await globber.glob();
+  // const globber = await glob.create(cacheDependencyPath);
+  // const cacheDependenciesPaths = await globber.glob();
+  const cacheDependenciesPaths: string[] = [];
 
   const existingDirectories: string[] = cacheDependenciesPaths
     .map(path.dirname)

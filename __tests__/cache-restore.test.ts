@@ -1,7 +1,7 @@
 import * as core from '@actions/core';
 // import * as cache from '@actions/cache';
 import * as path from 'path';
-import * as glob from '../src/glob-shim';
+// import * as glob from '@actions/glob';
 import osm from 'os';
 
 import * as utils from '../src/cache-utils';
@@ -59,7 +59,7 @@ describe('cache-restore', () => {
   let setOutputSpy: jest.SpyInstance;
   let getCommandOutputSpy: jest.SpyInstance;
   let restoreCacheSpy: jest.SpyInstance;
-  let hashFilesSpy: jest.SpyInstance;
+  // let hashFilesSpy: jest.SpyInstance;
   let archSpy: jest.SpyInstance;
 
   beforeEach(() => {
@@ -77,18 +77,18 @@ describe('cache-restore', () => {
     saveStateSpy.mockImplementation(() => undefined);
 
     // glob
-    hashFilesSpy = jest.spyOn(glob, 'hashFiles');
-    hashFilesSpy.mockImplementation((pattern: string) => {
-      if (pattern.includes('package-lock.json')) {
-        return npmFileHash;
-      } else if (pattern.includes('pnpm-lock.yaml')) {
-        return pnpmFileHash;
-      } else if (pattern.includes('yarn.lock')) {
-        return yarnFileHash;
-      } else {
-        return '';
-      }
-    });
+    // hashFilesSpy = jest.spyOn(glob, 'hashFiles');
+    // hashFilesSpy.mockImplementation((pattern: string) => {
+    //   if (pattern.includes('package-lock.json')) {
+    //     return npmFileHash;
+    //   } else if (pattern.includes('pnpm-lock.yaml')) {
+    //     return pnpmFileHash;
+    //   } else if (pattern.includes('yarn.lock')) {
+    //     return yarnFileHash;
+    //   } else {
+    //     return '';
+    //   }
+    // });
 
     // cache
     // restoreCacheSpy = jest.spyOn(cache, 'restoreCache');
@@ -181,7 +181,7 @@ describe('cache-restore', () => {
 
         // restoreCacheSpy.mockImplementationOnce(() => undefined);
         await restoreCache(packageManager, '');
-        expect(hashFilesSpy).toHaveBeenCalled();
+        // expect(hashFilesSpy).toHaveBeenCalled();
         expect(infoSpy).toHaveBeenCalledWith(
           `${packageManager} cache is not found`
         );

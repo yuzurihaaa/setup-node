@@ -1,6 +1,6 @@
-import {Globber} from '../../src/glob-shim';
+// import {Globber} from '@actions/glob';
 
-export class MockGlobber implements Globber {
+export class MockGlobber {
   private readonly expected: string[];
   constructor(expected: string[]) {
     this.expected = expected;
